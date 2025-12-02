@@ -1,0 +1,21 @@
+<form id="loginForm">
+  <input id="identifier" placeholder="email or username">
+  <input id="password" type="password" placeholder="password">
+  <button>Login</button>
+</form>
+<script>
+document.getElementById('loginForm').addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  const res = await fetch('/accounts/api/login/', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({ email: document.getElementById('identifier').value, password: document.getElementById('password').value })
+  });
+  const data = await res.json();
+  console.log(data);
+  if(data.tokens) {
+    localStorage.setItem('access', data.tokens.access);
+    localStorage.setItem('refresh', data.tokens.refresh);
+  }
+});
+</script>
