@@ -1,0 +1,31 @@
+# Requirements for Django project deployment on Render
+# This file lists all Python packages needed for the application to run on Render
+
+# Core Django framework
+Django>=5.2,<6.0
+
+# WSGI HTTP Server for UNIX systems (used by Render to serve the application)
+gunicorn>=21.2.0
+
+# PostgreSQL database adapter (Render uses PostgreSQL by default)
+psycopg2-binary>=2.9.9
+
+# Django REST Framework for building APIs
+djangorestframework>=3.16.0
+
+# JSON Web Token support for authentication
+djangorestframework-simplejwt>=5.5.0
+
+# API documentation tools
+drf-spectacular>=0.29.0
+drf-yasg>=1.21.0
+
+# YAML support for drf-spectacular
+PyYAML>=6.0.0
+
+# URL template support for drf-yasg
+uritemplate>=4.2.0
+
+# Schema validation for drf-spectacular
+jsonschema>=4.25.0
+inflection>=0.5.0
